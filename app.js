@@ -11,7 +11,20 @@ function agregarAmigo(){
     if (document.getElementById('amigo').value !== '') {
         //si no es vacio
         amigos.push(document.getElementById("amigo").value);
+        let listaHTML = document.getElementById("listaAmigos");
+        
         console.log(amigos);
+        
+        //limpiar la lista
+        listaHTML.innerHTML = "";
+
+        //for en el array 'amigos'
+        for (let i = 0; i < amigos.length; i++) {
+            let li = document.createElement("li");
+            li.textContent = amigos[i];
+            listaHTML.appendChild(li);       
+        }
+      
         limpiarCaja();
 
     } else {
