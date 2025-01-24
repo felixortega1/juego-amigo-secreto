@@ -13,6 +13,7 @@ function agregarAmigo(){
         amigos.push(document.getElementById("amigo").value);
         let listaHTML = document.getElementById("listaAmigos");
         
+        //para comprobar si el array 'amigos'funciona
         console.log(amigos);
         
         //limpiar la lista
@@ -20,9 +21,9 @@ function agregarAmigo(){
 
         //for en el array 'amigos'
         for (let i = 0; i < amigos.length; i++) {
-            let li = document.createElement("li");
-            li.textContent = amigos[i];
-            listaHTML.appendChild(li);       
+            let liLista = document.createElement("li");
+            liLista.textContent = amigos[i];
+            listaHTML.appendChild(liLista);       
         }
       
         limpiarCaja();
@@ -33,11 +34,21 @@ function agregarAmigo(){
     }  
 }
 
-/*
-function sortearAmigo() {
+
+function sortearAmigo(){ 
+    //crear al amigo secreto
+    let amigoSecreto = amigos[Math.floor(Math.random()*amigos.length)];
+    //crear variable para conectar con el ul del HTML
+    let ganadorHTML = document.getElementById("resultado");
+    //forma de imprimir una oracion con variables dentro
+    let textoGanador = document.createTextNode(`El amigo secreto es: ${amigoSecreto}`)
     
+    //limpiar el espacio
+    ganadorHTML.innerHTML = "";
+    //mostrar en el HTML
+    ganadorHTML.appendChild(textoGanador);        
 }   
-*/
+
 
 
 
